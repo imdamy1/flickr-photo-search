@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+/* IMPORTANT: scoate complet orice CSS default de la Vite ( :root, body, #root etc )
+   și forțează light/dark din clasa de pe <html> */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+/* Light (implicit) */
+body {
+  background: #f9fafb; /* similar cu bg-gray-50 */
+  color: #111827;      /* similar cu text-black */
+}
+
+/* Dark (când <html class="dark">) */
+html.dark body {
+  background: #0a0a0a; /* similar cu bg-neutral-900 */
+  color: #f5f5f5;      /* similar cu text-neutral-100 */
+}
