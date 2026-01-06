@@ -125,26 +125,28 @@ export default function App() {
     setHistory([]);
   }
 
+  // FUNCTIA REPARATA PENTRU VERCEL
   async function loadPhotos(term, currentPage) {
     setLoading(true);
-    setErr("");
+    setErr("");;
 
-    try {
-      const url = `/.netlify/functions/flickr?tags=${encodeURIComponent(term)}`;
-      const r = await fetch(url, { cache: "no-store" });
+     try {
+      const flickrUrl = `https://www.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1&tags=${encodeURIComponent(term)}`;
+      const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(flickrUrl)}`;
+
+      const r = await fetch(proxyUrl);
       if (!r.ok) throw new Error("Flickr nu a răspuns corect.");
 
       const data = await r.json();
       const all = Array.isArray(data.items) ? data.items : [];
 
       setTotal(all.length);
-
       const start = (currentPage - 1) * PER_PAGE;
       setItems(all.slice(start, start + PER_PAGE));
     } catch (e) {
       setItems([]);
       setTotal(0);
-      setErr(e?.message || "Failed to fetch");
+      setErr("Eroare la încărcarea pozelor. Încearcă din nou.");
     } finally {
       setLoading(false);
     }
