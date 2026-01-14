@@ -1,9 +1,10 @@
+# Configurație Netlify pentru build și dezvoltare locală
 [build]
-  base = "client"
-  publish = "dist"
-  functions = "netlify/functions"
+  base = "client"          # folderul aplicației
+  publish = "dist"         # folderul generat la build
+  functions = "netlify/functions" # funcții serverless (nefolosite)
 
 [dev]
-  command = "npm run dev"
-  targetPort = 5173
-  port = 8888
+  command = "npm run dev"  # comandă de pornire locală
+  targetPort = 5173        # port Vite
+  port = 8888              # port Netlify Dev
