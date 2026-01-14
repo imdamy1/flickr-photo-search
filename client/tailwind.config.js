@@ -1,9 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: "class",
-  content: ["./index.html", "./src/**/*.{js,jsx}"],
+  darkMode: "class", // dark mode controlat prin clasa "dark"
+  content: ["./index.html", "./src/**/*.{js,jsx}"], // fișiere scanate de Tailwind
   theme: {
-    extend: {},
+    extend: {}, // extensii de temă (nefolosite aici)
   },
-  plugins: [],
+  plugins: [], // fără plugin-uri suplimentare
 };

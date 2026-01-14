@@ -1,6 +1,7 @@
+// Configurație PostCSS pentru Tailwind
 export default {
   plugins: {
-    "@tailwindcss/postcss": {},
-    autoprefixer: {},
+    "@tailwindcss/postcss": {}, // Tailwind
+    autoprefixer: {},           // compatibilitate browser
   },
 };
